@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ 
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+      "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+      
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.PostgreSQLDialect
+		</property>
+		<property name="hibernate.connection.driver_class">
+			org.postgresql.Driver
+		</property>
+
+		<!-- Assume test is the database name -->
+	  	<property name="hibernate.connection.url">
+	  	  <!-- LIVE Connection  -->
+		  <!-- jdbc:postgresql://13.233.36.253:5432/wfpl?currentSchema=app_central_v2 -->   
+
+	  	  <!-- DEV Connection  -->
+		  jdbc:postgresql://localhost:5432/leap?currentSchema=lp 
+		  
+		</property>
+		<property name="hibernate.connection.username">
+		master
+		</property>
+		<property name="hibernate.connection.password">
+		 m@ster
+		</property> 
+		<property name="hibernate.c3p0.min_size">20</property>
+		<property name="hibernate.c3p0.max_size">30</property>
+		<property name="hibernate.c3p0.timeout">3000</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="show_sql">false</property>
+		<property name="hibernate.jdbc.batch_size">50</property>
+ 			
+	</session-factory>
+</hibernate-configuration>

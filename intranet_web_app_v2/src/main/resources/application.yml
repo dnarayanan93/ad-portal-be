@@ -1,0 +1,88 @@
+application:
+  id: 2
+  type: LEAP
+  version : 1.0
+  org-release-date : Mar 5th, 2022
+
+MAX-CATALOG-APPROVER: 3  
+
+telegram:
+   url-string: https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s 
+   token: 5535265534:AAGFL0TR_eYJPReG3AGSYiCU-aE7o2gs01c
+   amit-chat-id: 746106653
+   shashi-chat-id: 746106653
+   ho_mis-chat-id: 5613603978
+   es_mis-chat-id: 1917421979
+   
+       
+server:
+  port: 5001
+  servlet:
+    context-path: /leap_api
+  tomcat:
+    threads:
+      min-spare: 1
+      
+      
+spring:
+  application:
+    name: LEAP API V1
+    profile: PROD
+    properties:
+       mail: 
+          smtp:
+            auth: true
+          starttls: 
+            enable: true      
+   
+jwt:
+   secret: techgeeknext
+   expirationDateInMs: 2000000
+   refreshExpirationDateInMs: 6000000   
+
+security:
+  basic:
+    enable: false
+    
+  main:
+   log-startup-info: false
+    #web-application-type: none   
+       
+logging:  
+  file : /home/ec2-user/apps/logs/sync.log   
+  level:
+     s7:
+       Application : DEBUG        
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
+    rolling-file-name: /usr/share/apache-tomcat-9.0.39/logs/sync-%d{yyyy-MM-dd}.%i.log  
+
+#PRODUCTION SAP********************************
+#SAP_URL: https://20.204.149.38:50000/b1s/v1
+#sap_username: manager
+#sap_password: praxis123
+#sap_db: DB_PROD_WFPL_NEW    
+#TEST DB SAP********************************
+SAP_URL: https://20.204.149.38:50000/b1s/v1
+sap_username: PROF1
+sap_password: ilwbptw4E
+sap_db: TEST_26042023
+
+dashboard:
+   claim-display: N
+   mtd-display: Y
+   ytd-display: Y           
+
+smtp-config:
+   mail-host: czismtp.logix.in
+   mail-port: 587   
+   mail-from: it_reports@weikfield.com
+   mail-username: it_reports@weikfield.com
+   mail-password: Blue*@23
+   
+management:
+   endpoints:
+      web:
+         exposure:
+             include: health,info,logger,metrics  
